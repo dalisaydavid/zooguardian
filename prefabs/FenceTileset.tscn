@@ -1,0 +1,132 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/textures/fence.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.03761, 15.7722 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 3.9541, 15.5764 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.10908, 10.0315 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 35.3971, 11.1862 )
+
+[node name="FenceTileset" type="Node2D" index="0"]
+
+position = Vector2( 16.1356, -13.899 )
+
+[node name="Fence0Top" type="Sprite" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( 3.67329, -1.46589 )
+scale = Vector2( 1.09495, 1.04581 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 75.75, 34, 8, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fence0Top" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence0Top/StaticBody2D" index="0"]
+
+position = Vector2( -0.442017, -0.625029 )
+scale = Vector2( 1, 0.966728 )
+shape = SubResource( 1 )
+
+[node name="Fence0Left" type="Sprite" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 35.6733, -1.46589 )
+scale = Vector2( 1.09495, 1.04581 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 43.375, 31.2614, 8, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fence0Left" index="0"]
+
+position = Vector2( 0, 0.264039 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence0Left/StaticBody2D" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Fence0Bottom" type="Sprite" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 67.6733, -1.46589 )
+scale = Vector2( 1.09495, 1.04581 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 12, 31.2614, 8, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fence0Bottom" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence0Bottom/StaticBody2D" index="0"]
+
+position = Vector2( -0.458764, -3.25271 )
+scale = Vector2( 0.936065, 1.2496 )
+shape = SubResource( 3 )
+
+[node name="Fence0Horizontal" type="Sprite" parent="." index="3"]
+
+position = Vector2( 70.2758, -38.1529 )
+scale = Vector2( 1.09495, 1.04581 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 11.5, 3.31875, 71, 22.5 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fence0Horizontal" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence0Horizontal/StaticBody2D" index="0"]
+
+position = Vector2( 0.577835, 0 )
+scale = Vector2( 1.01505, 1 )
+shape = SubResource( 4 )
+
+

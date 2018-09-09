@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/FenceVertical.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/fence.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.11376, 10 )
+
+[node name="FenceVertical" type="Node2D" index="0" groups=[
+"Buildable",
+"Hittable",
+]]
+
+position = Vector2( 7.3612, 1.29272 )
+scale = Vector2( 0.886288, 0.665397 )
+script = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+position = Vector2( 0, 10.1536 )
+scale = Vector2( 1, 2.29225 )
+shape = SubResource( 1 )
+
+[node name="Top" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 75, 34, 9.5, 29 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Bottom" type="Sprite" parent="." index="2"]
+
+position = Vector2( 0.371101, 22.7773 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 11.75, 33, 8.75, 25.75 )
+_sections_unfolded = [ "Region" ]
+
+

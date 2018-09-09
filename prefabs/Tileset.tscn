@@ -1,14 +1,29 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/textures/tallgrass.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/outdoor_tiles.png" type="Texture" id=1]
 
 [node name="Tileset" type="Node2D" index="0"]
 
-[node name="Grass" type="Sprite" parent="." index="0"]
+position = Vector2( -15.9868, 16.0293 )
+scale = Vector2( 0.500411, 0.499085 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
+[node name="GrassLeaf0" type="Sprite" parent="." index="0"]
+
+position = Vector2( -0.0263791, -0.0587101 )
+scale = Vector2( 1.99836, 2.00367 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 42, 96, 40, 40 )
-_sections_unfolded = [ "Region" ]
+region_rect = Rect2( 190, 0.5, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Grass0" type="Sprite" parent="." index="1"]
+
+position = Vector2( 63.9211, -0.0587082 )
+scale = Vector2( 1.99836, 2.00367 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 190.375, 199.742, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
 
 

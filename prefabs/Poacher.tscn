@@ -1,31 +1,156 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/sprites/GreenCapDude.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Poacher.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/GreenCapDude1.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/GreenCapDude0.png" type="Texture" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
+extents = Vector2( 10, 18.319 )
 
-[node name="Poacher" type="Node2D" index="0"]
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 124.709
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.2491, 0.709343 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 12.9062 )
+
+[node name="Poacher" type="Node2D" index="0" groups=[
+"Pushable",
+"Enemy",
+"Hittable",
+]]
+
+position = Vector2( 24.0907, -22.3447 )
+scale = Vector2( 1.75283, 1.69827 )
+script = ExtResource( 1 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." index="0"]
 
+position = Vector2( 13.8907, -12.9647 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D" index="0"]
-
-texture = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" index="0"]
 
 position = Vector2( -0.299043, -0.356029 )
 scale = Vector2( 0.66248, 0.475102 )
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D" index="1"]
+
+frames = SubResource( 2 )
+animation = "Run"
+frame = 1
+playing = true
+
+[node name="Earshot" type="Area2D" parent="KinematicBody2D" index="2"]
+
+editor/display_folded = true
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Earshot" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="ActionAreaTop" type="Area2D" parent="KinematicBody2D" index="3"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/ActionAreaTop" index="0"]
+
+position = Vector2( -0.278031, -12.3655 )
+scale = Vector2( 1.02208, 1 )
+shape = SubResource( 4 )
+
+[node name="ActionAreaBottom" type="Area2D" parent="KinematicBody2D" index="4"]
+
+editor/display_folded = true
+position = Vector2( 0, 24.1422 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/ActionAreaBottom" index="0"]
+
+position = Vector2( 0, -12.3655 )
+shape = SubResource( 4 )
+
+[node name="ActionAreaLeft" type="Area2D" parent="KinematicBody2D" index="5"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/ActionAreaLeft" index="0"]
+
+position = Vector2( -9.9755, -0.213288 )
+scale = Vector2( 0.0571139, 0.986591 )
+shape = SubResource( 5 )
+
+[node name="ActionAreaRight" type="Area2D" parent="KinematicBody2D" index="6"]
+
+editor/display_folded = true
+position = Vector2( 19.3972, 0 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/ActionAreaRight" index="0"]
+
+position = Vector2( -9.9755, 0 )
+scale = Vector2( 0.0571139, 1 )
+shape = SubResource( 5 )
+
+[connection signal="body_entered" from="KinematicBody2D/Earshot" to="." method="_on_Earshot_body_entered"]
+
+[connection signal="body_exited" from="KinematicBody2D/Earshot" to="." method="_on_Earshot_body_exited"]
 
 

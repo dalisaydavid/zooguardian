@@ -1,27 +1,126 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://scripts/Darwin.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/DarwinIdle0.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/DarwinIdle1.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingBackward/SafariDaveWalkingBackward0.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingBackward/SafariDaveWalkingBackward1.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingBackward/SafariDaveWalkingBackward2.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingBackward/SafariDaveWalkingBackward3.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingForward/SafariDaveWalkingForward0.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingForward/SafariDaveWalkingForward1.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingForward/SafariDaveWalkingForward2.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingForward/SafariDaveWalkingForward3.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashDown/sprite_0.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashDown/sprite_1.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashDown/sprite_2.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashDown/sprite_3.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashDown/sprite_4.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashUp/sprite_0.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashUp/sprite_1.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashUp/sprite_2.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashUp/sprite_3.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashUp/sprite_4.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingRight/SafariDaveWalkingRight0.png" type="Texture" id=22]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingRight/SafariDaveWalkingRight1.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingRight/SafariDaveWalkingRight2.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingRight/SafariDaveWalkingRight3.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashRight/sprite_0.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashRight/sprite_1.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashRight/sprite_2.png" type="Texture" id=28]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashRight/sprite_3.png" type="Texture" id=29]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashRight/sprite_4.png" type="Texture" id=30]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashRight/sprite_5.png" type="Texture" id=31]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashLeft/sprite_0.png" type="Texture" id=32]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashLeft/sprite_1.png" type="Texture" id=33]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashLeft/sprite_2.png" type="Texture" id=34]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashLeft/sprite_3.png" type="Texture" id=35]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashLeft/sprite_4.png" type="Texture" id=36]
+[ext_resource path="res://assets/sprites/SafariDaveStickSlashLeft/sprite_5.png" type="Texture" id=37]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingLeft/SafariDaveWalkingLeft0.png" type="Texture" id=38]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingLeft/SafariDaveWalkingLeft1.png" type="Texture" id=39]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingLeft/SafariDaveWalkingLeft2.png" type="Texture" id=40]
+[ext_resource path="res://assets/sprites/SafariDaveWalkingLeft/SafariDaveWalkingLeft3.png" type="Texture" id=41]
+[ext_resource path="res://assets/audio/sword_swing.wav" type="AudioStream" id=42]
+[ext_resource path="res://assets/audio/Pop.ogg" type="AudioStream" id=43]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
+extents = Vector2( 10, 18.8771 )
 
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "Idle0",
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "MoveUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "MoveDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": false,
+"name": "AttackDown",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "AttackUp",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "MoveRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": false,
+"name": "AttackRight",
+"speed": 23.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"loop": false,
+"name": "AttackLeft",
+"speed": 23.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "MoveLeft",
 "speed": 5.0
 } ]
 
-[node name="Darwin" type="Node2D" index="0"]
+[sub_resource type="RectangleShape2D" id=3]
 
+custom_solver_bias = 0.0
+extents = Vector2( 230.167, 8.94775 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 173.148, 4.92244 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6.41254, 10 )
+
+[node name="Darwin" type="Node2D" index="0" groups=[
+"Hittable",
+]]
+
+position = Vector2( 15.8307, -11.3706 )
+scale = Vector2( 0.119709, 0.113419 )
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." index="0"]
 
@@ -39,8 +138,104 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D" index="1"]
 
 frames = SubResource( 2 )
-animation = "Idle0"
-frame = 1
+animation = "Idle"
 playing = true
+
+[node name="ActionAreaTop" type="Area2D" parent="KinematicBody2D" index="2"]
+
+editor/display_folded = true
+position = Vector2( -14.1357, -337.589 )
+scale = Vector2( 0.196096, 0.181223 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/ActionAreaTop" index="0"]
+
+position = Vector2( 0, -25.0765 )
+scale = Vector2( 2.28154, 2.91955 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ActionAreaBottom" type="Area2D" parent="KinematicBody2D" index="3"]
+
+editor/display_folded = true
+position = Vector2( -0.543858, 178.521 )
+scale = Vector2( 0.665168, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/ActionAreaBottom" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="ActionAreaRight" type="Area2D" parent="KinematicBody2D" index="4"]
+
+editor/display_folded = true
+position = Vector2( 158.719, -88.1686 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/ActionAreaRight" index="0"]
+
+scale = Vector2( 1, 18.5198 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ActionAreaLeft" type="Area2D" parent="KinematicBody2D" index="5"]
+
+editor/display_folded = true
+position = Vector2( -175.425, -88.1686 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/ActionAreaLeft" index="0"]
+
+scale = Vector2( 1, 18.5198 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AttackAudio" type="AudioStreamPlayer2D" parent="KinematicBody2D" index="6"]
+
+stream = ExtResource( 42 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="BuildAudio" type="AudioStreamPlayer2D" parent="KinematicBody2D" index="7"]
+
+stream = ExtResource( 43 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Build"
+area_mask = 1
 
 

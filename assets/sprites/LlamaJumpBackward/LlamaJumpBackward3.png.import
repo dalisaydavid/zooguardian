@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GreenCapDude.png-267a4a3a867cbf508c515dcc5caf16bc.stex"
+path="res://.import/LlamaJumpBackward3.png-bf48d113aecdb683057e8be54e2e73f1.stex"
 
 [deps]
 
-source_file="res://assets/sprites/GreenCapDude.png"
-dest_files=[ "res://.import/GreenCapDude.png-267a4a3a867cbf508c515dcc5caf16bc.stex" ]
+source_file="res://assets/sprites/LlamaJumpBackward/LlamaJumpBackward3.png"
+dest_files=[ "res://.import/LlamaJumpBackward3.png-bf48d113aecdb683057e8be54e2e73f1.stex" ]
 
 [params]
 

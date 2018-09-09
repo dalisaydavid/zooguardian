@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mathgrant_-_02_-_Arctic_Snow.ogg-5a03efef45c4a8cbbd2ae1058d8f588a.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/mathgrant_-_02_-_Arctic_Snow.ogg"
+dest_files=[ "res://.import/mathgrant_-_02_-_Arctic_Snow.ogg-5a03efef45c4a8cbbd2ae1058d8f588a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

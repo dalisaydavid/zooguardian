@@ -9,12 +9,12 @@
 [ext_resource path="res://assets/audio/mathgrant_-_02_-_Arctic_Snow.ogg" type="AudioStream" id=7]
 [ext_resource path="res://prefabs/Llama.tscn" type="PackedScene" id=8]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 31.6726, 32.2803 )
 
-[sub_resource type="NavigationPolygon" id=1]
+[sub_resource type="NavigationPolygon" id=2]
 
 vertices = PoolVector2Array( 1224, -1.32257, 1222.49, 1463.77, -2.83417, 1460.94, 1.65314, -2.54321 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
@@ -71,7 +71,7 @@ audio_bus_name = "Master"
 
 position = Vector2( -0.273228, 0 )
 scale = Vector2( 1.00788, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Darwin" parent="." index="2" instance=ExtResource( 3 )]
 
@@ -142,7 +142,7 @@ editor/display_folded = true
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
 
 position = Vector2( -478.272, -480.579 )
-navpoly = SubResource( 1 )
+navpoly = SubResource( 2 )
 enabled = true
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="9"]

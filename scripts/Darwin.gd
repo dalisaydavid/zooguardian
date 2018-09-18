@@ -98,7 +98,7 @@ func check_if_hit(event):
 		animation = "AttackRight"
 		is_hit_action = true
 		
-	if is_hit_action:		
+	if is_hit_action:
 		animated_sprite.play(animation)
 		attack_audio.play(0.0)
 		start_last_attack_animation = OS.get_ticks_msec()
@@ -187,3 +187,12 @@ func handle_movement():
 	
 	if is_last_attack_animation_over():
 		animated_sprite.animation = animation
+
+func buff(on, animal_buff):
+	animated_sprite.get_node("Buff").visible = on
+	
+#	if animal_buff == 'llama':
+#		animated_sprite.get_node("Buff").modulate = Color(238.0, 192.97, 97.27)
+
+func apply_llama_buff():
+	pass

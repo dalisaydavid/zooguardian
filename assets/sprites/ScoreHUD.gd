@@ -7,9 +7,9 @@ var prefix
 
 func _ready():
 	set_process(true)
-	animals_protected_label = get_node('CanvasLayer/AnimalsProtectedLabel')
-	fences_label = get_node('CanvasLayer/FencesLabel')
-	attack_or_build_label = get_node('CanvasLayer/AttackOrBuildLabel')
+	animals_protected_label = get_node('CanvasLayer/VBoxContainer/AnimalsProtectedLabel')
+	fences_label = get_node('CanvasLayer/VBoxContainer/FencesLabel')
+	attack_or_build_label = get_node('CanvasLayer/VBoxContainer/AttackOrBuildLabel')
 
 func _process(delta):
 	var animal_count = get_parent().get_animal_count()

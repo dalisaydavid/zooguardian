@@ -116,5 +116,7 @@ func take_damage(damage):
 	floating_text.global_position = kinematic_body.global_position
 	get_parent().add_child(floating_text)
 
+func get_buff():
+	return "llama"
 
 	

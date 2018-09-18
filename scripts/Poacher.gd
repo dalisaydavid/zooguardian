@@ -84,8 +84,9 @@ func _physics_process(delta):
 func attack_friendlies():
 	if bodies_in_earshot.size():
 		for body in bodies_in_earshot:
-			if in_attack_range(body) and body.get_parent().is_in_group("Animal") and not body.get_parent().is_in_group("Enemy"):
-				attack(body)
+			if in_attack_range(body):
+				if (body.get_parent().is_in_group("Animal") or "Darwin" in body.get_parent().get_name()) and not body.get_parent().is_in_group("Enemy"):
+					attack(body)
 
 func attack_buildables():
 	if bodies_in_earshot.size():

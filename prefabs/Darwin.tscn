@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://scripts/Darwin.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/DarwinIdle0.png" type="Texture" id=2]
@@ -41,8 +41,9 @@
 [ext_resource path="res://assets/sprites/SafariDaveWalkingLeft/SafariDaveWalkingLeft1.png" type="Texture" id=39]
 [ext_resource path="res://assets/sprites/SafariDaveWalkingLeft/SafariDaveWalkingLeft2.png" type="Texture" id=40]
 [ext_resource path="res://assets/sprites/SafariDaveWalkingLeft/SafariDaveWalkingLeft3.png" type="Texture" id=41]
-[ext_resource path="res://assets/audio/sword_swing.wav" type="AudioStream" id=42]
-[ext_resource path="res://assets/audio/Pop.ogg" type="AudioStream" id=43]
+[ext_resource path="res://assets/sprites/Llama Jump Right/LammaJumpRight1.png" type="Texture" id=42]
+[ext_resource path="res://assets/audio/sword_swing.wav" type="AudioStream" id=43]
+[ext_resource path="res://assets/audio/Pop.ogg" type="AudioStream" id=44]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -65,6 +66,11 @@ animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "MoveDown",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Dead",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
@@ -97,6 +103,25 @@ animations = [ {
 "name": "MoveLeft",
 "speed": 5.0
 } ]
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "Pulse"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Buff:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.33587, 0.312267 ), Vector2( 0.45, 0.45 ), Vector2( 0.33587, 0.31 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -140,6 +165,28 @@ shape = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "Idle"
 playing = true
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Buff" type="Sprite" parent="KinematicBody2D/AnimatedSprite" index="0"]
+
+visible = false
+modulate = Color( 1, 0.75, 0, 1 )
+show_behind_parent = true
+position = Vector2( -14.2181, -349.395 )
+scale = Vector2( 0.363928, 0.344418 )
+texture = ExtResource( 42 )
+_sections_unfolded = [ "Animation", "Region", "Transform", "Visibility" ]
+
+[node name="BuffAnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D/AnimatedSprite" index="1"]
+
+root_node = NodePath("..")
+autoplay = "Pulse"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 2.0
+anims/Pulse = SubResource( 6 )
+blend_times = [  ]
+_sections_unfolded = [ "Pause", "Playback Options" ]
 
 [node name="ActionAreaTop" type="Area2D" parent="KinematicBody2D" index="2"]
 
@@ -218,7 +265,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="AttackAudio" type="AudioStreamPlayer2D" parent="KinematicBody2D" index="6"]
 
-stream = ExtResource( 42 )
+stream = ExtResource( 43 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -229,7 +276,7 @@ area_mask = 1
 
 [node name="BuildAudio" type="AudioStreamPlayer2D" parent="KinematicBody2D" index="7"]
 
-stream = ExtResource( 43 )
+stream = ExtResource( 44 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false

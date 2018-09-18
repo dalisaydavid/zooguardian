@@ -4,8 +4,6 @@ ZooGuardian is a simple 2D hack and slash, survival game. Play as Darwin, the Zo
 
 ### Demos
 [![Watch the video](https://thumbs.gfycat.com/VainAdvancedAmethystgemclam-size_restricted.gif)](https://gfycat.com/gifs/detail/VainAdvancedAmethystgemclam)
-(Click to enlarge)
 
 [![Watch the video](https://thumbs.gfycat.com/GrayDimpledGlobefish-size_restricted.gif)](https://gfycat.com/graydimpledglobefish)
-(Click to enlarge)
 
